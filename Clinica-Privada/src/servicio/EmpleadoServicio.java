@@ -1,5 +1,4 @@
 package servicio;
-
 import modelo.*;
 import java.util.ArrayList;
 
@@ -11,7 +10,6 @@ public class EmpleadoServicio {
         empleados.add(empleado);
         System.out.println("Empleado registrado correctamente.");
     }
-
     public void mostrarEmpleados() {
 
         if (empleados.isEmpty()) {
@@ -24,56 +22,36 @@ public class EmpleadoServicio {
             System.out.println("Pago: " + e.calcularPago());
         }
     }
-
     public boolean cedulaExiste(String cedula) {
-
         for (Empleado e : empleados) {
-
             if (e.getCedula().equals(cedula)) {
-                return true;
-            }
-        }
-
-        return false;
+                return true;}
+        }return false;
     }
-
     public void buscarPorCedula(String cedula) {
 
         boolean encontrado = false;
 
         for (Empleado e : empleados) {
-
             if (e.getCedula().equals(cedula)) {
-
                 e.mostrarInformacion();
                 System.out.println("Pago: " + e.calcularPago());
-
                 encontrado = true;
                 break;
-            }
-        }
-
+            }}
         if (!encontrado) {
-            System.out.println("Registro no encontrado.");
-        }
-    }
+            System.out.println("Registro no encontrado.");}}
 
     public void reemplazarInformacion(String cedula, String nuevoNombre) {
-
         boolean encontrado = false;
-
         for (Empleado e : empleados) {
-
             if (e.getCedula().equals(cedula)) {
-
                 e.setNombre(nuevoNombre);
-
                 System.out.println("Informacion actualizada.");
                 encontrado = true;
                 break;
             }
         }
-
         if (!encontrado) {
             System.out.println("Empleado no encontrado.");
         }
@@ -84,11 +62,8 @@ public class EmpleadoServicio {
         boolean encontrado = false;
 
         for (Empleado e : empleados) {
-
             if (e.getCedula().equals(cedula)) {
-
                 empleados.remove(e);
-
                 System.out.println("Empleado eliminado.");
                 encontrado = true;
                 break;
@@ -119,9 +94,7 @@ public class EmpleadoServicio {
 
         double pagoMedicos = 0;
         double pagoAdministrativos = 0;
-
         Empleado mayorIngreso = empleados.get(0);
-
         for (Empleado e : empleados) {
 
             if (e instanceof Medico) {
@@ -129,27 +102,21 @@ public class EmpleadoServicio {
                 totalMedicos++;
                 pagoMedicos += e.calcularPago();
             }
-
             if (e instanceof Administrativo) {
 
                 totalAdministrativos++;
                 pagoAdministrativos += e.calcularPago();
             }
-
             if (e.calcularPago() > mayorIngreso.calcularPago()) {
                 mayorIngreso = e;
             }
         }
-
         System.out.println("===== ESTADISTICAS =====");
-
         System.out.println("Total medicos: " + totalMedicos);
         System.out.println("Total administrativos: " + totalAdministrativos);
         System.out.println("Total empleados: " + empleados.size());
-
         System.out.println("Pago total medicos: " + pagoMedicos);
         System.out.println("Pago total administrativos: " + pagoAdministrativos);
-
         System.out.println(
                 "Empleado con mayor ingreso: " +
                         mayorIngreso.getNombre()
