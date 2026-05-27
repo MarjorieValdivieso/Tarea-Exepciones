@@ -121,7 +121,6 @@ public class EmpleadoServicio {
                 "Empleado con mayor ingreso: " +
                         mayorIngreso.getNombre()
         );
-
         System.out.println(
                 "Ingreso: " +
                         mayorIngreso.calcularPago()
