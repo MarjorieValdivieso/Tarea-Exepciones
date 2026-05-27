@@ -46,7 +46,7 @@ public class Medico extends Empleado{
     public void mostrarInformacion() {
         super.mostrarInformacion();
         System.out.println("Especialidad: " + especialidad);
-        System.out.println("Pacientes atendidos: " + getNumeroPacientesAtentidos();
+        System.out.println("Pacientes atendidos: " + numeroPacientesAtentidos);
         System.out.println("Valor consulta: " + valorConsulta);
         System.out.println("Pago: " + calcularPago());
         System.out.println("-----------------------------");
